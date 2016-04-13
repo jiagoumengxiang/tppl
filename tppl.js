@@ -29,7 +29,7 @@ exports.tppl = function(tpl, data){
             var p = tpls[t].split(':]');
             if(t!=0){
                 fn.$ += '='==p[0].charAt(0)
-                  ? "+("+p[0].substr(1)+")"
+                  ? "+(typeof("+p[0].substr(1)+")=='undefined'?'':"+p[0].substr(1)+")"
                   : ";"+p[0].replace(/\r\n/g, '')+"$=$"
             }
             // 支持 <pre> 和 [::] 包裹的 js 代码
